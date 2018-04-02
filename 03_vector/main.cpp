@@ -53,10 +53,10 @@ struct Vetor{
 
     void reserve(int capacidade){
 
-        Vetor antigo(capacity());
+        Vetor antigo(this->size());
 
         for (int i = 0; i < this->size(); ++i) {
-            antigo.push_back(this->_data[i]);
+            antigo.push_back(this->at(i));
         }
 
 
@@ -88,25 +88,28 @@ struct Vetor{
 
 int main(){
 
-    Vetor vet(100);
+    Vetor vet(5);
 
-    cout << vet.size() << endl;
+    cout << endl;
 
     for (int i = 0; i < vet.capacity(); ++i) {
         vet.push_back(i);
     }
 
+    cout << endl;
     for (int i = 0; i < vet.size(); ++i) {
         cout << vet.at(i) << endl;
     }
 
-    vet.reserve(20);
+    vet.reserve(2);
 
 
+    cout << endl;
     for (int i = 0; i < vet.size(); ++i) {
         cout << vet.at(i) << endl;
     }
 
+    cout << endl;
     cout << vet.size() << endl;
 
     return 0;
