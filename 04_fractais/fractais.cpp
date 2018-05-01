@@ -72,7 +72,6 @@ void arvore(Pen& p, float lado, int dec){
         dec-=2;
     }
 
-
     int alea = 10 - rand()%15;
     int ang = 35 + alea;
 
@@ -136,17 +135,45 @@ void fractal_arvore(){
     p.setSpeed(100);
 
     arvore(p, 200, 12);
-
     p.wait();
 }
 
 
+void teste(Pen &p, int lado){
+
+    p.circle(lado);
+    while (1) {
+
+        for (int i = 0; i < 360; ++i){
+            p.walk(lado);
+            p.walk(-lado);
+            p.right(1);
+        }
+        p.setColor(rand()%256, rand()%256, rand()%256);
+        p.circle(lado);
+    }
+}
+
+void fractal_teste(){
+
+    Pen p(1000, 700);
+    p.setXY(500, 500);
+    p.setHeading(90);
+    p.setSpeed(500);
+    p.setThickness(2);
+
+    teste(p, 100);
+
+    p.wait();
+}
+
 int main(){
 
-//    fractal_gelo();
+    fractal_gelo();
 //    fractal_circulo();
 //    fractal_trigo();
     fractal_arvore();
+//    fractal_teste();
 
 
     return 0;
