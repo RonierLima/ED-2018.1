@@ -32,7 +32,6 @@ int main(){
     list<Ambiente>::iterator itAmb;
     Ambiente amb;
     amb.cursor = amb.texto.end();
-    ambientes.push_back(amb);
     itAmb = --ambientes.end();
 
     sf::RenderWindow janela(sf::VideoMode(800, 600), "Janela");
@@ -79,7 +78,7 @@ int main(){
                     cout << "espaco" << endl;
                 }
                 else if(event.key.code == sf::Keyboard::BackSpace){
-                    if(amb.cursor != amb.texto.begin()){   
+                    if(amb.cursor != amb.texto.begin()){
                         ambientes.push_back(amb);
                         amb.texto.erase(amb.cursor++, amb.cursor--);
                         itAmb = ambientes.end();
