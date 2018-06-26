@@ -147,10 +147,29 @@ public:
         head = _remove(head, value);
     }
 
-    void iremove(int value){
-        //todo
-    }
+// Remover iterativo que faltava
+    Node * iremove(int value){
+      auto node = head;
+          if(node == nullptr)
+              return nullptr;
 
+          if(head->value == value){
+              auto aux = head;
+              head = head->next;
+              delete aux;
+              return head;
+          }
+          while(node->next != nullptr){
+              if(node->next->value == value){
+                  auto aux = node->next;
+                  node->next = node->next->next;
+                  delete aux;
+                  return node->next;
+              }
+              node = node->next;
+          }
+          return node;
+    }
     void inserir_ordenado(int value){
         auto node = head;
         if(head == nullptr || head->value > value){
